@@ -1,0 +1,65 @@
+[tool.poetry]
+name = "agentic-invoice-process"
+version = "0.1.0"
+description = "AI-powered invoice processing system with secure authentication and multi-agent workflow"
+authors = ["REDDY"]
+readme = "README.md"
+packages = [{include = "agents"}, {include = "auth"}, {include = "config"}, {include = "models"}, {include = "orchestrator"}, {include = "ui"}, {include = "utils"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+# Core dependencies (always installed)
+requests = "^2.31.0"
+streamlit = "^1.32.0" 
+pandas = "^2.2.1"
+numpy = "^1.26.4"
+python-dateutil = "^2.9.0"
+python-dotenv = "^1.0.1"
+llama-index = "0.10.25"
+ollama = "0.1.8"
+plotly = "^5.17.0"
+langchain = "^0.3.25"
+langgraph = "^0.4.7"
+pypdf2 = "^3.0.1"
+python-docx = "^1.1.2"
+pillow = "^11.2.1"
+pytesseract = "^0.3.13"
+pdf2image = "^1.17.0"
+pydantic = "^2.11.5"
+structlog = "^25.3.0"
+rich = "^14.0.0"
+chromadb = "0.4.24"
+faiss-cpu = "^1.11.0"
+fastapi = "0.110.0"
+uvicorn = "^0.34.2"
+pytest = "^8.3.5"
+pytest-asyncio = "0.23.5"
+tqdm = "^4.67.1"
+loguru = "^0.7.3"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.1.1"
+pytest-asyncio = "^0.23.5"
+
+[tool.poetry.scripts]
+invoice-processor = "main:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 100
+target-version = ['py311']
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+addopts = "-v --tb=short"

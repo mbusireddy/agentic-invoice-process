@@ -1,0 +1,137 @@
+2025-05-28 21:26:00,144 - agents.document_parser - WARNING - Document processing dependencies not available
+2025-05-28 21:26:00,144 - agents.document_parser - INFO - Document parser initialized with formats: ['.pdf', '.png', '.jpg', '.jpeg', '.tiff']
+2025-05-28 21:26:00,144 - agents.data_extraction - INFO - Data extraction agent initialized
+2025-05-28 21:26:00,144 - agents.validation - INFO - Validation agent initialized
+2025-05-28 21:26:00,144 - agents.regional_compliance - INFO - Regional compliance agent initialized
+2025-05-28 21:26:00,144 - agents.approval - INFO - Approval agent initialized
+2025-05-28 21:26:00,144 - agents.audit - INFO - Audit agent initialized
+2025-05-28 21:26:00,144 - orchestrator.agent_coordinator - INFO - All agents initialized successfully
+2025-05-28 21:26:00,144 - orchestrator.agent_coordinator - INFO - Agent coordinator initialized with agents: ['document_parser', 'data_extraction', 'validation', 'regional_compliance', 'approval', 'audit']
+2025-05-28 21:26:00,158 - utils.ollama_client - ERROR - Ollama API request failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:26:00,158 - utils.ollama_client - ERROR - Text generation failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:26:00,159 - utils.ollama_client - ERROR - Ollama API request failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:26:00,160 - utils.ollama_client - ERROR - Text generation failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:26:00,160 - utils.ollama_client - ERROR - Ollama API request failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:26:00,160 - utils.ollama_client - ERROR - Text generation failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:26:00,161 - utils.ollama_client - ERROR - Ollama API request failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:26:00,161 - utils.ollama_client - ERROR - Text generation failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:26:00,162 - utils.ollama_client - ERROR - Ollama API request failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:26:00,162 - utils.ollama_client - ERROR - Text generation failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:26:00,163 - utils.ollama_client - ERROR - Ollama API request failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:26:00,163 - utils.ollama_client - ERROR - Text generation failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:26:00,164 - utils.ollama_client - ERROR - Ollama API request failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:26:00,164 - utils.ollama_client - ERROR - Text generation failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:45:20,821 - agents.document_parser - WARNING - Document processing dependencies not available
+2025-05-28 21:45:20,821 - agents.document_parser - INFO - Document parser initialized with formats: ['.pdf', '.png', '.jpg', '.jpeg', '.tiff']
+2025-05-28 21:45:20,821 - agents.data_extraction - INFO - Data extraction agent initialized
+2025-05-28 21:45:20,821 - agents.validation - INFO - Validation agent initialized
+2025-05-28 21:45:20,821 - agents.regional_compliance - INFO - Regional compliance agent initialized
+2025-05-28 21:45:20,822 - agents.approval - INFO - Approval agent initialized
+2025-05-28 21:45:20,822 - agents.audit - INFO - Audit agent initialized
+2025-05-28 21:45:20,822 - orchestrator.agent_coordinator - INFO - All agents initialized successfully
+2025-05-28 21:45:20,822 - orchestrator.agent_coordinator - INFO - Agent coordinator initialized with agents: ['document_parser', 'data_extraction', 'validation', 'regional_compliance', 'approval', 'audit']
+2025-05-28 21:45:20,823 - utils.ollama_client - ERROR - Ollama API request failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:45:20,823 - utils.ollama_client - ERROR - Text generation failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:45:20,824 - utils.ollama_client - ERROR - Ollama API request failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:45:20,824 - utils.ollama_client - ERROR - Text generation failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:45:20,825 - utils.ollama_client - ERROR - Ollama API request failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:45:20,825 - utils.ollama_client - ERROR - Text generation failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:45:20,825 - utils.ollama_client - ERROR - Ollama API request failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:45:20,825 - utils.ollama_client - ERROR - Text generation failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:45:20,827 - utils.ollama_client - ERROR - Ollama API request failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:45:20,827 - utils.ollama_client - ERROR - Text generation failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:45:20,828 - utils.ollama_client - ERROR - Ollama API request failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:45:20,828 - utils.ollama_client - ERROR - Text generation failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:45:20,829 - utils.ollama_client - ERROR - Ollama API request failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:45:20,829 - utils.ollama_client - ERROR - Text generation failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:48:20,213 - agents.document_parser - WARNING - Document processing dependencies not available
+2025-05-28 21:48:20,213 - agents.document_parser - INFO - Document parser initialized with formats: ['.pdf', '.png', '.jpg', '.jpeg', '.tiff']
+2025-05-28 21:48:20,213 - agents.data_extraction - INFO - Data extraction agent initialized
+2025-05-28 21:48:20,213 - agents.validation - INFO - Validation agent initialized
+2025-05-28 21:48:20,213 - agents.regional_compliance - INFO - Regional compliance agent initialized
+2025-05-28 21:48:20,213 - agents.approval - INFO - Approval agent initialized
+2025-05-28 21:48:20,213 - agents.audit - INFO - Audit agent initialized
+2025-05-28 21:48:20,213 - orchestrator.agent_coordinator - INFO - All agents initialized successfully
+2025-05-28 21:48:20,213 - orchestrator.agent_coordinator - INFO - Agent coordinator initialized with agents: ['document_parser', 'data_extraction', 'validation', 'regional_compliance', 'approval', 'audit']
+2025-05-28 21:48:20,215 - utils.ollama_client - ERROR - Ollama API request failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:48:20,215 - utils.ollama_client - ERROR - Text generation failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:48:20,216 - utils.ollama_client - ERROR - Ollama API request failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:48:20,216 - utils.ollama_client - ERROR - Text generation failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:48:20,217 - utils.ollama_client - ERROR - Ollama API request failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:48:20,217 - utils.ollama_client - ERROR - Text generation failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:48:20,217 - utils.ollama_client - ERROR - Ollama API request failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:48:20,218 - utils.ollama_client - ERROR - Text generation failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:48:20,218 - utils.ollama_client - ERROR - Ollama API request failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:48:20,218 - utils.ollama_client - ERROR - Text generation failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:48:20,219 - utils.ollama_client - ERROR - Ollama API request failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:48:20,219 - utils.ollama_client - ERROR - Text generation failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:48:20,219 - utils.ollama_client - ERROR - Ollama API request failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 21:48:20,219 - utils.ollama_client - ERROR - Text generation failed: 404 Client Error: Not Found for url: http://localhost:11434/api/generate
+2025-05-28 22:07:32,399 - agents.document_parser - WARNING - Document processing dependencies not available
+2025-05-28 22:07:32,400 - agents.document_parser - INFO - Document parser initialized with formats: ['.pdf', '.png', '.jpg', '.jpeg', '.tiff']
+2025-05-28 22:07:32,400 - agents.data_extraction - INFO - Data extraction agent initialized
+2025-05-28 22:07:32,400 - agents.validation - INFO - Validation agent initialized
+2025-05-28 22:07:32,400 - agents.regional_compliance - INFO - Regional compliance agent initialized
+2025-05-28 22:07:32,400 - agents.approval - INFO - Approval agent initialized
+2025-05-28 22:07:32,400 - agents.audit - INFO - Audit agent initialized
+2025-05-28 22:07:32,400 - orchestrator.agent_coordinator - INFO - All agents initialized successfully
+2025-05-28 22:07:32,401 - orchestrator.agent_coordinator - INFO - Agent coordinator initialized with agents: ['document_parser', 'data_extraction', 'validation', 'regional_compliance', 'approval', 'audit']
+2025-05-28 22:12:47,568 - agents.document_parser - WARNING - Document processing dependencies not available
+2025-05-28 22:12:47,569 - agents.document_parser - INFO - Document parser initialized with formats: ['.pdf', '.png', '.jpg', '.jpeg', '.tiff']
+2025-05-28 22:12:47,569 - agents.data_extraction - INFO - Data extraction agent initialized
+2025-05-28 22:12:47,569 - agents.validation - INFO - Validation agent initialized
+2025-05-28 22:12:47,569 - agents.regional_compliance - INFO - Regional compliance agent initialized
+2025-05-28 22:12:47,569 - agents.approval - INFO - Approval agent initialized
+2025-05-28 22:12:47,569 - agents.audit - INFO - Audit agent initialized
+2025-05-28 22:12:47,569 - orchestrator.agent_coordinator - INFO - All agents initialized successfully
+2025-05-28 22:12:47,569 - orchestrator.agent_coordinator - INFO - Agent coordinator initialized with agents: ['document_parser', 'data_extraction', 'validation', 'regional_compliance', 'approval', 'audit']
+2025-05-28 22:13:47,468 - __main__ - INFO - Initializing processing components...
+2025-05-28 22:13:47,468 - agents.document_parser - WARNING - Document processing dependencies not available
+2025-05-28 22:13:47,468 - agents.document_parser - INFO - Document parser initialized with formats: ['.pdf', '.png', '.jpg', '.jpeg', '.tiff']
+2025-05-28 22:13:47,468 - agents.data_extraction - INFO - Data extraction agent initialized
+2025-05-28 22:13:47,468 - agents.validation - INFO - Validation agent initialized
+2025-05-28 22:13:47,469 - agents.regional_compliance - INFO - Regional compliance agent initialized
+2025-05-28 22:13:47,469 - agents.approval - INFO - Approval agent initialized
+2025-05-28 22:13:47,469 - agents.audit - INFO - Audit agent initialized
+2025-05-28 22:13:47,469 - orchestrator.agent_coordinator - INFO - All agents initialized successfully
+2025-05-28 22:13:47,469 - orchestrator.agent_coordinator - INFO - Agent coordinator initialized with agents: ['document_parser', 'data_extraction', 'validation', 'regional_compliance', 'approval', 'audit']
+2025-05-28 22:13:47,469 - orchestrator.workflow_manager - INFO - Workflow manager initialized with workflows: ['standard', 'fast_track', 'detailed_review', 'compliance_only']
+2025-05-28 22:13:47,469 - __main__ - INFO - Processing file: sample_invoice.txt
+2025-05-28 22:13:47,469 - orchestrator.workflow_manager - INFO - Starting workflow standard for session workflow_standard_20250528_221347
+2025-05-28 22:13:47,469 - agents.document_parser - INFO - Executing Document Parser Agent (attempt 1)
+2025-05-28 22:13:47,469 - agents.document_parser - ERROR - Document parsing failed: Document processing dependencies not installed
+2025-05-28 22:13:47,469 - agents.document_parser - INFO - Executing Document Parser Agent (attempt 2)
+2025-05-28 22:13:47,469 - agents.document_parser - ERROR - Document parsing failed: Document processing dependencies not installed
+2025-05-28 22:13:47,469 - agents.document_parser - INFO - Executing Document Parser Agent (attempt 3)
+2025-05-28 22:13:47,469 - agents.document_parser - ERROR - Document parsing failed: Document processing dependencies not installed
+2025-05-28 22:13:47,469 - agents.document_parser - INFO - Executing Document Parser Agent (attempt 4)
+2025-05-28 22:13:47,469 - agents.document_parser - ERROR - Document parsing failed: Document processing dependencies not installed
+2025-05-28 22:13:47,469 - agents.document_parser - ERROR - Document Parser Agent failed after all retry attempts
+2025-05-28 22:13:47,469 - agents.data_extraction - INFO - Executing Data Extraction Agent (attempt 1)
+2025-05-28 22:14:15,468 - agents.data_extraction - INFO - Data Extraction Agent completed successfully in 28.00s
+2025-05-28 22:14:15,468 - agents.validation - INFO - Executing Validation Agent (attempt 1)
+2025-05-28 22:14:15,468 - agents.validation - INFO - Executing Validation Agent (attempt 2)
+2025-05-28 22:14:15,468 - agents.validation - INFO - Executing Validation Agent (attempt 3)
+2025-05-28 22:14:15,468 - agents.validation - ERROR - Validation Agent failed after all retry attempts
+2025-05-28 22:14:15,468 - agents.regional_compliance - INFO - Executing Regional Compliance Agent (attempt 1)
+2025-05-28 22:14:15,468 - agents.regional_compliance - INFO - Executing Regional Compliance Agent (attempt 2)
+2025-05-28 22:14:15,468 - agents.regional_compliance - INFO - Executing Regional Compliance Agent (attempt 3)
+2025-05-28 22:14:15,468 - agents.regional_compliance - ERROR - Regional Compliance Agent failed after all retry attempts
+2025-05-28 22:14:15,468 - agents.approval - INFO - Executing Approval Agent (attempt 1)
+2025-05-28 22:14:15,468 - agents.approval - ERROR - Approval decision failed: unsupported operand type(s) for +: 'NoneType' and 'float'
+2025-05-28 22:14:15,468 - agents.approval - INFO - Executing Approval Agent (attempt 2)
+2025-05-28 22:14:15,468 - agents.approval - ERROR - Approval decision failed: unsupported operand type(s) for +: 'NoneType' and 'float'
+2025-05-28 22:14:15,468 - agents.approval - ERROR - Approval Agent failed after all retry attempts
+2025-05-28 22:14:15,468 - agents.audit - INFO - Executing Audit Agent (attempt 1)
+2025-05-28 22:14:15,468 - agents.audit - INFO - Audit Agent completed successfully in 0.00s
+2025-05-28 22:14:15,469 - orchestrator.workflow_manager - INFO - Workflow standard completed successfully for session workflow_standard_20250528_221347
+2025-05-28 22:14:15,469 - __main__ - ERROR - CLI processing failed: unsupported format string passed to NoneType.__format__
+2025-05-28 22:27:50,964 - agents.document_parser - WARNING - Document processing dependencies not available
+2025-05-28 22:27:50,964 - agents.document_parser - INFO - Document parser initialized with formats: ['.pdf', '.png', '.jpg', '.jpeg', '.tiff']
+2025-05-28 22:27:50,964 - agents.data_extraction - INFO - Data extraction agent initialized
+2025-05-28 22:27:50,964 - agents.validation - INFO - Validation agent initialized
+2025-05-28 22:27:50,965 - agents.regional_compliance - INFO - Regional compliance agent initialized
+2025-05-28 22:27:50,965 - agents.approval - INFO - Approval agent initialized
+2025-05-28 22:27:50,965 - agents.audit - INFO - Audit agent initialized
+2025-05-28 22:27:50,965 - orchestrator.agent_coordinator - INFO - All agents initialized successfully
+2025-05-28 22:27:50,965 - orchestrator.agent_coordinator - INFO - Agent coordinator initialized with agents: ['document_parser', 'data_extraction', 'validation', 'regional_compliance', 'approval', 'audit']

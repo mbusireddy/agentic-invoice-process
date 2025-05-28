@@ -1,0 +1,30 @@
+INVOICE
+
+From: TechCorp Solutions LLC
+Address: 123 Innovation Drive
+San Francisco, CA 94107
+Phone: (555) 123-4567
+Email: billing@techcorp.com
+
+To: Global Enterprise Inc
+456 Business Ave
+New York, NY 10001
+
+Invoice Number: TC-2024-5678
+Date: May 15, 2024
+Due Date: June 15, 2024
+
+DESCRIPTION OF SERVICES:
+1. Cloud Infrastructure Setup        $5,000.00
+2. System Integration Services       $3,500.00
+3. Security Audit and Testing        $2,000.00
+4. Documentation and Training        $1,500.00
+
+Subtotal:                           $12,000.00
+Tax (8.5%):                         $1,020.00
+Total Amount Due:                   $13,020.00
+
+Payment Terms: Net 30 days
+Payment Methods: Wire transfer, Check
+
+Thank you for your business!

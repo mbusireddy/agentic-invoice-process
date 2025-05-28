@@ -1,0 +1,54 @@
+[nltk_data] Downloading package punkt_tab to
+[nltk_data]     /home/reddy/.cache/pypoetry/virtualenvs/agentic-
+[nltk_data]     invoice-process-WjruFSGO-py3.12/lib/python3.12/site-
+[nltk_data]     packages/llama_index/core/_static/nltk_cache...
+[nltk_data]   Package punkt_tab is already up-to-date!
+Ollama LLM not available - using default
+Ollama embeddings not available - using default
+Failed to initialize LlamaIndex: [Errno 2] No such file or directory: '/home/reddy/Desktop/agentic-invoice-process/data/index/docstore.json'
+Continuing without LlamaIndex integration
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://192.168.0.101:8501
+
+[nltk_data] Downloading package punkt_tab to
+[nltk_data]     /home/reddy/.cache/pypoetry/virtualenvs/agentic-
+[nltk_data]     invoice-process-WjruFSGO-py3.12/lib/python3.12/site-
+[nltk_data]     packages/llama_index/core/_static/nltk_cache...
+[nltk_data]   Package punkt_tab is already up-to-date!
+Ollama LLM not available - using default
+Ollama embeddings not available - using default
+Failed to initialize LlamaIndex: [Errno 2] No such file or directory: '/home/reddy/Desktop/agentic-invoice-process/data/index/docstore.json'
+Continuing without LlamaIndex integration
+Document processing dependencies not available
+Document processing dependencies not available
+Document processing dependencies not available
+Ollama API request failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+Text generation failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+Ollama API request failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+Text generation failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+Ollama API request failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+Text generation failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+Ollama API request failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+Text generation failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+Ollama API request failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+Text generation failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+Ollama API request failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+Text generation failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+Ollama API request failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+Text generation failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+Ollama API request failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+Text generation failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+Ollama API request failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+Text generation failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+  Stopping...
+Ollama API request failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+Text generation failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+Ollama API request failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+Text generation failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+Ollama API request failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+Text generation failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+Starting Invoice Processing System Web Interface...
+Open your browser to: http://localhost:8501

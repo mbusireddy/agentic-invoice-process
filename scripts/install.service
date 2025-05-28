@@ -1,0 +1,48 @@
+[Unit]
+Description=Invoice Processing System
+Documentation=https://github.com/your-org/agentic-invoice-process
+After=network.target
+Wants=network.target
+
+[Service]
+Type=forking
+User=invoiceuser
+Group=invoiceuser
+WorkingDirectory=/opt/agentic-invoice-process
+Environment=PATH=/opt/agentic-invoice-process/venv/bin
+Environment=PYTHONPATH=/opt/agentic-invoice-process
+Environment=OLLAMA_BASE_URL=http://localhost:11434
+
+# Main service command
+ExecStart=/opt/agentic-invoice-process/scripts/start_services.sh
+ExecStop=/opt/agentic-invoice-process/scripts/stop_services.sh
+ExecReload=/bin/kill -HUP $MAINPID
+
+# Process management
+PIDFile=/opt/agentic-invoice-process/.pids/web_interface.pid
+Restart=on-failure
+RestartSec=10
+TimeoutStartSec=300
+TimeoutStopSec=60
+
+# Security settings
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/opt/agentic-invoice-process/logs
+ReadWritePaths=/opt/agentic-invoice-process/.pids
+ReadWritePaths=/opt/agentic-invoice-process/data
+
+# Resource limits
+LimitNOFILE=65536
+MemoryMax=2G
+CPUQuota=200%
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=invoice-processing
+
+[Install]
+WantedBy=multi-user.target

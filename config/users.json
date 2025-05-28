@@ -1,0 +1,22 @@
+{
+  "admin": {
+    "username": "admin",
+    "email": "admin@company.com",
+    "role": "admin",
+    "password_hash": "b5493a025f270f936983d8dd119d38b5c909967ecac4f35095295a1ffe32ebb7",
+    "salt": "28e9594b3e410c3e1018dfcc35a6daad249cd7d0b6757d6e8fadcd575d88e4ec",
+    "created_at": "2025-05-28T21:43:13.618409",
+    "last_login": "2025-05-28T23:32:06.996887",
+    "is_active": true
+  },
+  "testuser": {
+    "username": "testuser",
+    "email": "test@example.com",
+    "role": "processor",
+    "password_hash": "788b5c9e1b76586922c52ded9c1e5c4bb0d0a8adf0d1d69f732707b4e8fafab2",
+    "salt": "711906bd75139bce843019ffdc287a62e0ce139226e4d6b671587770fc113551",
+    "created_at": "2025-05-28T21:45:20.638520",
+    "last_login": "2025-05-28T22:06:28.082820",
+    "is_active": true
+  }
+}
