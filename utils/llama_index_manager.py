@@ -22,21 +22,13 @@ try:
     from llama_index.embeddings.ollama import OllamaEmbedding
     OLLAMA_EMBEDDINGS_AVAILABLE = True
 except ImportError:
-    try:
-        from llama_index.core.embeddings import BaseEmbedding
-        OLLAMA_EMBEDDINGS_AVAILABLE = False
-    except ImportError:
-        OLLAMA_EMBEDDINGS_AVAILABLE = False
+    OLLAMA_EMBEDDINGS_AVAILABLE = False
 
 try:
     from llama_index.llms.ollama import Ollama
     OLLAMA_LLM_AVAILABLE = True
 except ImportError:
-    try:
-        from llama_index.core.llms import LLM
-        OLLAMA_LLM_AVAILABLE = False
-    except ImportError:
-        OLLAMA_LLM_AVAILABLE = False
+    OLLAMA_LLM_AVAILABLE = False
 
 LLAMA_INDEX_AVAILABLE = LLAMA_INDEX_CORE_AVAILABLE
 
@@ -105,8 +97,9 @@ class LlamaIndexManager:
         """Load existing index or create new one"""
         try:
             if self.index_dir.exists() and any(self.index_dir.iterdir()):
-                # Load existing index
-                self.index = VectorStoreIndex.from_storage(self.storage_context)
+                # Load existing index using correct method
+                from llama_index.core import load_index_from_storage
+                self.index = load_index_from_storage(self.storage_context)
                 self.logger.info("Loaded existing index")
             else:
                 # Create new empty index
@@ -128,8 +121,16 @@ class LlamaIndexManager:
             # Create document
             doc = Document(text=text, metadata=metadata or {})
             
-            # Add to index
-            self.index.insert(doc)
+            # Add to index using correct method
+            if hasattr(self.index, 'insert'):
+                self.index.insert(doc)
+            else:
+                # For newer versions, rebuild index with new document
+                existing_docs = []
+                if hasattr(self.index, '_docstore') and self.index._docstore:
+                    existing_docs = list(self.index._docstore.docs.values())
+                existing_docs.append(doc)
+                self.index = VectorStoreIndex.from_documents(existing_docs, storage_context=self.storage_context)
             
             # Persist index
             self.index.storage_context.persist(persist_dir=str(self.index_dir))

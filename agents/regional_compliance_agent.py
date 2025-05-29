@@ -59,14 +59,17 @@ class RegionalComplianceAgent(BaseAgent):
                 region = "US"
                 result.add_warning(f"Invalid region, defaulting to US")
             
+            # Get regional rules first
+            regional_rules = get_regional_rules(region)
+            
+            # Display detailed region information
+            region_info = self._get_region_display_info(region, regional_rules)
+            
             result.add_processing_step(
                 agent=self.name,
                 action="compliance_check_started",
-                result=f"Checking compliance for region {region}"
+                result=f"Checking compliance for region {region}: {region_info}"
             )
-            
-            # Get regional rules
-            regional_rules = get_regional_rules(region)
             
             # Perform compliance checks
             compliance_results = self._check_compliance(invoice, region, regional_rules)
@@ -144,7 +147,7 @@ class RegionalComplianceAgent(BaseAgent):
         
         supported_currencies = regional_rules.get("currency", ["USD"])
         
-        if invoice.currency not in supported_currencies:
+        if not invoice.currency or invoice.currency not in supported_currencies:
             results.append({
                 "check": "currency_compliance",
                 "status": "error",
@@ -379,6 +382,12 @@ class RegionalComplianceAgent(BaseAgent):
         manager_limit = approval_limits.get("manager_approval_limit", 10000)
         executive_limit = approval_limits.get("executive_approval_limit", 50000)
         
+        if not invoice.total_amount:
+            approval_info["required_approver"] = "manager"
+            approval_info["approval_level"] = "manual"
+            approval_info["reason"] = "Total amount is missing or zero"
+            return approval_info
+        
         if invoice.total_amount <= auto_limit:
             approval_info["required_approver"] = "system"
             approval_info["approval_level"] = "auto"
@@ -425,3 +434,18 @@ class RegionalComplianceAgent(BaseAgent):
             # Errors get 0 points
         
         return total_score / max_score if max_score > 0 else 1.0
+    
+    def _get_region_display_info(self, region: str, regional_rules: Dict[str, Any]) -> str:
+        """Generate display information for the region and its rules"""
+        currency_list = ", ".join(regional_rules.get("currency", ["USD"]))
+        tax_types = ", ".join(regional_rules.get("tax_types", ["SALES_TAX"]))
+        standard_tax_rate = regional_rules.get("tax_rates", {}).get("standard", 0.08)
+        
+        approval_rules = regional_rules.get("approval_rules", {})
+        auto_limit = approval_rules.get("auto_approve_limit", 1000)
+        manager_limit = approval_rules.get("manager_approval_limit", 10000)
+        
+        return (f"Currencies: {currency_list}, Tax Types: {tax_types}, "
+                f"Standard Tax Rate: {standard_tax_rate:.1%}, "
+                f"Auto-approval limit: {auto_limit:,.0f}, "
+                f"Manager approval limit: {manager_limit:,.0f}")

@@ -199,7 +199,12 @@ class WorkflowManager:
                     
                     # Check for critical failures
                     if result.errors and step.required:
-                        raise Exception(f"Required step {step.agent_name} failed: {result.errors}")
+                        # Special handling for validation step when no invoice is available
+                        if step.agent_name == "validation" and any("No invoice found" in str(error) for error in result.errors):
+                            self.logger.warning(f"Validation step failed due to missing invoice - this indicates data extraction failed")
+                            raise Exception(f"Required step validation failed: {result.errors}")
+                        else:
+                            raise Exception(f"Required step {step.agent_name} failed: {result.errors}")
                     
                     self.logger.debug(f"Step {step.agent_name} completed successfully")
                     

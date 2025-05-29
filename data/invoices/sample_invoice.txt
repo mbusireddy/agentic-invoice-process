@@ -3,6 +3,6 @@ Invoice #: INV-2024-001
 Date: 2024-01-15
 From: ABC Company
 To: XYZ Corp
-Amount: ,234.56
-Tax: 23.46
-Total: ,358.02
+Amount: $1,234.56
+Tax: $123.46
+Total: $1,358.02

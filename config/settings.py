@@ -20,7 +20,7 @@ class Settings:
 
         # Ollama Configuration
         self.OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
-        self.OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "qwen2.5:14b")
+        self.OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "llama2:7b")  # Using lighter model for better performance
         self.OLLAMA_EMBEDDING_MODEL = os.getenv("OLLAMA_EMBEDDING_MODEL", "nomic-embed-text")
 
         # LlamaIndex Configuration

@@ -241,7 +241,7 @@ class ApprovalAgent(BaseAgent):
             "manual_review_recommended": False
         }
         
-        confidence_score = factors["invoice"].get("confidence_score", 0.0)
+        confidence_score = factors["invoice"].get("confidence_score", 0.0) or 0.0
         
         if confidence_score >= self.auto_approve_threshold:
             result["passed"] = True
@@ -359,7 +359,7 @@ class ApprovalAgent(BaseAgent):
     
     def _calculate_decision_confidence(self, factors: Dict[str, Any], decision: Dict[str, Any]) -> float:
         """Calculate confidence in the approval decision"""
-        base_confidence = factors["invoice"].get("confidence_score", 0.0)
+        base_confidence = factors["invoice"].get("confidence_score", 0.0) or 0.0
         
         # Adjust based on decision type
         if decision["decision"] == "approved":

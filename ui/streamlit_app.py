@@ -13,19 +13,11 @@ from orchestrator import AgentCoordinator, WorkflowManager, WorkflowType
 from ui.components.upload_component import UploadComponent
 from ui.components.dashboard_component import DashboardComponent
 from ui.components.results_component import render_results, render_processing_history
-from ui.components.login_component import LoginComponent, AdminComponent
-from auth import UserRole, AuthManager
 from config.settings import create_directories
 
 
 def initialize_session_state():
     """Initialize session state variables"""
-    if 'authenticated' not in st.session_state:
-        st.session_state.authenticated = False
-    if 'user_role' not in st.session_state:
-        st.session_state.user_role = None
-    if 'username' not in st.session_state:
-        st.session_state.username = None
     if 'current_page' not in st.session_state:
         st.session_state.current_page = 'Dashboard'
     if 'agent_coordinator' not in st.session_state:
@@ -47,56 +39,26 @@ def render_sidebar():
     with st.sidebar:
         st.title("Invoice Processing")
         
-        if st.session_state.authenticated:
-            st.write(f"Welcome, {st.session_state.username}")
-            st.write(f"Role: {st.session_state.user_role.value}")
-            
-            # Navigation menu
-            st.subheader("Navigation")
-            
-            pages = {
-                "Dashboard": "🏠 Dashboard",
-                "Upload": "📤 Upload Invoice",
-                "Results": "📊 Results",
-                "History": "📋 History"
-            }
-            
-            # Add admin page for admin users
-            if st.session_state.user_role == UserRole.ADMIN:
-                pages["Admin"] = "⚙️ Admin Panel"
-            
-            # Create navigation buttons
-            for page_key, page_label in pages.items():
-                if st.button(page_label, key=f"nav_{page_key}", use_container_width=True):
-                    st.session_state.current_page = page_key
-                    st.rerun()
-            
-            st.divider()
-            
-            # Logout button
-            if st.button("🚪 Logout", use_container_width=True):
-                st.session_state.authenticated = False
-                st.session_state.user_role = None
-                st.session_state.username = None
-                st.session_state.current_page = 'Dashboard'
+        # Navigation menu
+        st.subheader("Navigation")
+        
+        pages = {
+            "Dashboard": "🏠 Dashboard",
+            "Upload": "📤 Upload Invoice",
+            "Results": "📊 Results",
+            "History": "📋 History"
+        }
+        
+        # Create navigation buttons
+        for page_key, page_label in pages.items():
+            if st.button(page_label, key=f"nav_{page_key}", use_container_width=True):
+                st.session_state.current_page = page_key
                 st.rerun()
-        else:
-            st.write("Please log in to continue")
 
 
 def render_main_content():
     """Render the main content area based on current page"""
-    if not st.session_state.authenticated:
-        # Show login form
-        login_component = LoginComponent()
-        if login_component.render_login_form():
-            st.session_state.authenticated = True
-            st.session_state.user_role = login_component.streamlit_session.get_user_role()
-            st.session_state.username = login_component.streamlit_session.get_username()
-            st.rerun()
-        return
-    
-    # Initialize components if authenticated
+    # Initialize components
     initialize_components()
     
     # Render page based on current selection
@@ -150,16 +112,19 @@ def render_main_content():
     
     elif page == "History":
         st.title("📋 Processing History")
-        render_processing_history(st.session_state.agent_coordinator)
-    
-    elif page == "Admin" and st.session_state.user_role == UserRole.ADMIN:
-        st.title("⚙️ Admin Panel")
-        auth_manager = AuthManager()
-        admin_component = AdminComponent(auth_manager)
-        admin_component.render_admin_panel()
+        # Get history from workflow manager if available
+        try:
+            if hasattr(st.session_state, 'workflow_manager') and st.session_state.workflow_manager:
+                history = st.session_state.workflow_manager.get_execution_history()
+            else:
+                history = []
+            render_processing_history(history)
+        except Exception as e:
+            st.error(f"Error loading processing history: {e}")
+            render_processing_history([])
     
     else:
-        st.error("Page not found or access denied")
+        st.error("Page not found")
 
 
 def main():

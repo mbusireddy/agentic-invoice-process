@@ -130,7 +130,7 @@ Respond with JSON only:"""
             
             response = self.chat(messages, model)
             
-            # Parse JSON from response
+            # Parse JSON from response with enhanced error handling
             try:
                 # Clean response - remove any markdown formatting
                 clean_response = response.strip()
@@ -143,18 +143,54 @@ Respond with JSON only:"""
                 return json.loads(clean_response)
             except json.JSONDecodeError as je:
                 logger.error(f"Failed to parse LLM JSON response: {je}")
-                # Try to extract JSON from response
+                # Enhanced JSON extraction with multiple strategies
                 import re
-                json_match = re.search(r'\{.*\}', response, re.DOTALL)
+                
+                # Strategy 1: Extract first complete JSON object
+                json_match = re.search(r'\{[^}]*(?:\{[^}]*\}[^}]*)*\}', response, re.DOTALL)
                 if json_match:
                     try:
-                        return json.loads(json_match.group())
+                        json_str = json_match.group()
+                        return json.loads(json_str)
                     except json.JSONDecodeError:
-                        logger.error("Failed to parse extracted JSON")
-                        return {}
-                else:
-                    logger.error("No JSON found in response")
-                    return {}
+                        logger.debug("Strategy 1 failed, trying strategy 2")
+                
+                # Strategy 2: Find JSON between first { and last }
+                first_brace = response.find('{')
+                last_brace = response.rfind('}')
+                if first_brace != -1 and last_brace != -1 and last_brace > first_brace:
+                    try:
+                        json_str = response[first_brace:last_brace + 1]
+                        return json.loads(json_str)
+                    except json.JSONDecodeError:
+                        logger.debug("Strategy 2 failed, trying strategy 3")
+                
+                # Strategy 3: Split by lines and find JSON block
+                lines = response.split('\n')
+                json_lines = []
+                in_json = False
+                brace_count = 0
+                
+                for line in lines:
+                    if '{' in line and not in_json:
+                        in_json = True
+                        brace_count += line.count('{') - line.count('}')
+                        json_lines.append(line)
+                    elif in_json:
+                        brace_count += line.count('{') - line.count('}')
+                        json_lines.append(line)
+                        if brace_count <= 0:
+                            break
+                
+                if json_lines:
+                    try:
+                        json_str = '\n'.join(json_lines)
+                        return json.loads(json_str)
+                    except json.JSONDecodeError:
+                        logger.debug("Strategy 3 failed")
+                
+                logger.error("All JSON extraction strategies failed")
+                return {}
                     
         except Exception as e:
             logger.error(f"Structured data extraction failed: {e}")

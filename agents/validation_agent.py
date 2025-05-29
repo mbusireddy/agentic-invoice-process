@@ -46,18 +46,25 @@ class ValidationAgent(BaseAgent):
         result = ProcessingResult()
         
         try:
-            # Extract invoice from input
+            # Extract invoice from input with better error handling
+            invoice = None
             if isinstance(input_data, Invoice):
                 invoice = input_data
-            elif context and "invoice" in context:
+            elif context and "invoice" in context and context["invoice"] is not None:
                 invoice = context["invoice"]
-            else:
-                raise ValueError("No invoice found in input or context")
+            elif isinstance(input_data, dict) and "invoice" in input_data:
+                invoice = input_data["invoice"]
+            
+            if invoice is None:
+                error_msg = "Validation failed: No invoice found in input or context"
+                self.logger.error(error_msg)
+                result.add_error(error_msg)
+                return result
             
             result.add_processing_step(
                 agent=self.name,
                 action="validation_started",
-                result=f"Validating invoice {invoice.invoice_number}"
+                result=f"Validating invoice {getattr(invoice, 'invoice_number', 'Unknown')}"
             )
             
             # Perform validation checks
@@ -319,7 +326,7 @@ class ValidationAgent(BaseAgent):
         
         # Validate line items sum to subtotal
         if invoice.line_items and invoice.subtotal:
-            calculated_subtotal = sum(item.total for item in invoice.line_items)
+            calculated_subtotal = sum(item.total or 0 for item in invoice.line_items if item.total is not None)
             diff = abs(calculated_subtotal - invoice.subtotal)
             
             if diff > 0.01:  # Allow for small rounding differences
@@ -342,7 +349,8 @@ class ValidationAgent(BaseAgent):
         # Validate total calculation
         if invoice.subtotal and invoice.total_tax is not None and invoice.total_amount:
             discount = invoice.discount_amount or 0
-            calculated_total = invoice.subtotal + invoice.total_tax - discount
+            tax_amount = invoice.total_tax or 0
+            calculated_total = invoice.subtotal + tax_amount - discount
             diff = abs(calculated_total - invoice.total_amount)
             
             if diff > 0.01:
@@ -379,7 +387,17 @@ class ValidationAgent(BaseAgent):
             return results
         
         for i, item in enumerate(invoice.line_items):
-            # Validate line item calculations
+            # Validate line item calculations - check for None values
+            if item.quantity is None or item.unit_price is None or item.total is None:
+                results.append({
+                    "check": "line_items",
+                    "field": f"line_item_{i}",
+                    "status": "error",
+                    "message": f"Line item {i+1}: has missing quantity, price, or total",
+                    "severity": "high"
+                })
+                continue
+                
             calculated_total = item.quantity * item.unit_price
             diff = abs(calculated_total - item.total)
             
